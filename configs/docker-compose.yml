@@ -1,0 +1,21 @@
+services:
+  agent:
+    build:
+      context: ..
+      dockerfile: configs/Dockerfile
+
+    container_name: pi_agent
+
+    volumes:
+      - ..:/repo:ro
+      - ./workspace:/workspace
+      - ./pi:/root/.pi
+
+    working_dir: /workspace
+
+    environment:
+      OPENAI_BASE_URL: "http://host.docker.internal:11434/v1"
+      OPENAI_API_KEY: "ollama"
+
+    stdin_open: true
+    tty: true

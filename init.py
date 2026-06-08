@@ -1,1 +1,0 @@
-print("Ciao da Docker V2!")
